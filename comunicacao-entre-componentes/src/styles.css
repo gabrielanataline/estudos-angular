@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600&display=swap');/* You can add global styles to this file, and also import other style files */
+
+/* app-root{
+  display: flex
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: 'Hind Siliguri', sans-serif;
+    /* margin-bottom: 12px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+    
+  }
