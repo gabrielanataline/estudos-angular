@@ -1,8 +1,12 @@
 <main class="wrapper">
   <div class="app-form p-4 d-flex flex-column justify-content-center">
     <h1>Cadastro de Produtos</h1>
+    <!--
+      $event possui os dados do evento que acabou de ser
+      emitido. Nesse caso, ela possui os dados que o evento
+      'submit' emitiu.
+     -->
     <form action="" (submit)="adicionarProduto($event)">
-      <!-- $event possui os dados do evento que acabou de ser emitido. Nesse caso, possui os dados que o evento submit emitiu-->
       <div>
         <label for="nome" class="form-label">Nome do Produto</label>
         <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="nome">
@@ -28,9 +32,10 @@
       </div>
     </form>
   </div>
-  <section class="produtos"> 
+  <section class="produtos">
     <!-- <produto-card [prod]="p"></produto-card> -->
-    <produto-card *ngFor="let produto of produtos" [prod]="produto" ></produto-card>
+    <!-- ngFor -->
+    <!-- Serve para percorrer listas dentro do HTML do seu componente -->
+    <produto-card *ngFor="let produto of produtos" [prod]="produto" (deletar)="deletarProduto($event)"></produto-card>
   </section>
- 
 </main>

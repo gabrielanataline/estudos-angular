@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Produto } from './Interfaces/Produto';
+import { Produto } from './interfaces/Produto';
 
 @Component({
   selector: 'app-root',
@@ -8,41 +8,40 @@ import { Produto } from './Interfaces/Produto';
 })
 export class AppComponent {
   title = 'diretivas';
+  nome: string = ''
+  imagem: string = ''
+  preco: number = 0
+  estoque: number = 0
+  descricao: string = ''
 
-  // p: Produto ={
-  //   nome: 'Xbox',
-  //   descricao: 'Console da Microsoft',
-  //   estoque: 250,
-  //   preco: 4000,
-  //   imagem: 'https://http2.mlstatic.com/D_NQ_NP_627914-MLA40655732617_022020-O.webp'
+  produtos: Produto[] = []
 
-  // }
-    nome: String = ''
-    imagem: String= ''
-    preco: number = 0
-    estoque: number =0
-    descricao: String = ''
+  adicionarProduto(evento: any): void {
+    console.log(evento)
+    /**
+     * preventDefault() faz com que
+     * o comportamento padrão de um elemento
+     * HTML seja anulado
+     */
+    evento.preventDefault()
 
-    produtos: Produto [] = []
+    /**
+     * stopPropagation evita com que a emissão
+     * do evento afete outros elementos HTML
+     */
+    evento.stopPropagation()
 
+    this.produtos.push({
+      descricao: this.descricao,
+      estoque: this.estoque,
+      imagem: this.imagem,
+      nome: this.nome,
+      preco: this.preco
+    })
+  }
 
-    //event binding
-    adicionarProduto(evento:any): void {
-
-      evento.preventDefault()
-      //faz com que o comportamento padrão de um elemento  html seja anulado
-
-      evento.stopPropagation ()
-      //evita com que a emissão do evento afete outros elementos html
-      this.produtos.push({
-        descricao: this.descricao,
-        estoque: this.estoque,
-        imagem: this.imagem,
-        nome: this.nome,
-        preco: this.preco
-     })
-
-     this.nome = ""
-
+  deletarProduto(p: Produto): void {
+    const index = this.produtos.indexOf(p)
+    this.produtos.splice(index, 1)
   }
 }

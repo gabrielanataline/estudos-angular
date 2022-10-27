@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Produto } from '../Interfaces/Produto';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Produto } from '../interfaces/Produto';
 
 @Component({
   selector: 'produto-card',
@@ -12,14 +12,30 @@ export class ProdutoCardComponent implements OnInit {
   prod: Produto = {
     descricao: '',
     estoque: 0,
-    imagem: '', 
+    imagem: '',
     nome: '',
     preco: 0
   }
+
+  mostrarProduto: boolean = true
+
+  @Output()
+  deletar: EventEmitter<Produto> = new EventEmitter<Produto>()
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  esconderProduto() {
+    this.mostrarProduto = false
+  }
+
+  aparecerProduto(): void {
+    this.mostrarProduto = true
+  }
+
+  emitirEventoDeletar(): void {
+    this.deletar.emit(this.prod)
+  }
 }

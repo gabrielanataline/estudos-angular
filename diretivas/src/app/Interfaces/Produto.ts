@@ -1,9 +1,7 @@
 export interface Produto {
-    nome: String
-    preco: number
-    imagem: String
-    descricao:String
-    estoque:number
-    
-
+  nome: string
+  preco: number
+  imagem: string
+  descricao: string
+  estoque: number
 }
