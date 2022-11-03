@@ -1,2 +1,0 @@
-# estudos-angular
-Aulas Angular
